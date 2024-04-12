@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Payment Results</h1>
+    <p>APR</p>
+    <p><%= @user_apr.to_fs(:percentage, {:precision => 4}) %>
+    <p>Number of years</p>
+    <p><%= @user_years %></p>
+    <p>Principal</p>
+    <p><%= @user_pv.to_fs(:currency) %></p>
+    <p>Payment</p>
+    <p><%= @payment.to_fs(:currency) %></p>
+    <a href="/payment/new">Calculate another payment<a>
+  </body>
+</html>

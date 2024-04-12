@@ -30,13 +30,24 @@ get("/square_root/results") do
 end
 
 get("/payment/new") do
+  erb(:payment_new)
 end
 
 get("/payment/results") do
+  @user_apr = params.fetch("user_apr").to_f
+  @user_years = params.fetch("user_years").to_i
+  @user_pv = params.fetch("user_pv").to_f
+  @payment = (@user_pv * (@user_apr / 1200)) / (1 - (1 + @user_apr / 1200) ** (-@user_years * 12))
+  erb(:payment_results)
 end
 
 get("/random/new") do
+  erb(:random_new)
 end
 
 get("/random/results") do
+  @user_min = params.fetch("user_min").to_f
+  @user_max = params.fetch("user_max").to_f
+  @random_number = rand(@user_min..@user_max)
+  erb(:random_results)
 end
