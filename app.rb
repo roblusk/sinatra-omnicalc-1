@@ -10,7 +10,7 @@ get("/") do
 end
 
 get("/square/new") do
-  erb(:square)
+  erb(:square_new)
 end
 
 get("/square/results") do
@@ -20,10 +20,23 @@ get("/square/results") do
 end
 
 get("/square_root/new") do
+  erb(:square_root_new)
+end
+
+get("/square_root/results") do
+  @number = params.fetch("number").to_f
+  @square_root = @number ** 0.5
+  erb(:square_root_results)
 end
 
 get("/payment/new") do
 end
 
+get("/payment/results") do
+end
+
 get("/random/new") do
+end
+
+get("/random/results") do
 end
